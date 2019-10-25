@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Area2D_Elementos.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/hidrogenio.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.545, 28.9482 )
+
+[node name="Elemento" type="Area2D"]
+position = Vector2( 1344.62, 682.421 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="hidrogenio" type="Sprite" parent="."]
+scale = Vector2( 0.307605, 0.307605 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 3, 2, 220, 221 )

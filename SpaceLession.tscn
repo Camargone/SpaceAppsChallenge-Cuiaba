@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://tela inicial.png" type="Texture" id=1]
+[ext_resource path="res://botão junto.png" type="Texture" id=2]
+[ext_resource path="res://botão junto.gd" type="Script" id=3]
+[ext_resource path="res://Button.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Left to right"
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "skip"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="tela inicial" type="Sprite" parent="."]
+position = Vector2( 639, 359 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="botão junto" type="Sprite" parent="."]
+position = Vector2( 889.507, 465.286 )
+texture = ExtResource( 2 )
+hframes = 3
+frame = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="botão junto"]
+pause_mode = 1
+"anims/Left to right" = SubResource( 1 )
+anims/skip = SubResource( 2 )
+
+[node name="Jogar" type="Control" parent="."]
+margin_left = 722.065
+margin_top = 418.04
+margin_right = 1043.07
+margin_bottom = 518.04
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="Jogar"]
+margin_right = 323.0
+margin_bottom = 101.0
+action_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="Control2" type="Control" parent="."]
+margin_left = 1097.09
+margin_top = 540.397
+margin_right = 1261.09
+margin_bottom = 591.397
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Button" type="Button" parent="Control2"]
+margin_right = 163.0
+margin_bottom = 52.0
+action_mode = 0
+text = "Creditos"
+
+[node name="Control3" type="Control" parent="."]
+margin_left = 1097.09
+margin_top = 605.577
+margin_right = 1261.09
+margin_bottom = 656.577
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Button" type="Button" parent="Control3"]
+margin_right = 163.0
+margin_bottom = 52.0
+action_mode = 0
+text = "Sair"
